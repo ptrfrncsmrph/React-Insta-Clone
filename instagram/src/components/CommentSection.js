@@ -3,6 +3,8 @@ import PropTypes from "prop-types"
 
 import Comment from "./Comment"
 
+import "./CommentSection.scss"
+
 const CommentSection = ({ comments = [] }) => (
   <section className="comment-section">
     <ul>
