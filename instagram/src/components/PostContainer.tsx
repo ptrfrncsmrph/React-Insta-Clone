@@ -1,8 +1,13 @@
 import React from "react"
-import Post from "./Post"
+import Post, { PostProps } from "./Post"
 import CommentSection from "./CommentSection"
+import { CommentProps } from "./Comment"
 
 import "./PostContainer.scss"
+
+interface PostContainerProps extends PostProps {
+  comments: Array<CommentProps>
+}
 
 const PostContainer = ({
   comments,
@@ -11,7 +16,7 @@ const PostContainer = ({
   thumbnailUrl,
   timestamp,
   username
-}) => (
+}: PostContainerProps) => (
   <li className="post-container">
     <article>
       <Post {...{ imageUrl, likes, thumbnailUrl, timestamp, username }} />

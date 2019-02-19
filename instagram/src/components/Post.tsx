@@ -2,11 +2,12 @@ import React from "react"
 
 import "./Post.scss"
 
-interface PostProps {
+export interface PostProps {
   imageUrl: string
   thumbnailUrl: string
   username: string
   likes: number
+  timestamp: string
 }
 
 const Post = ({ imageUrl, thumbnailUrl, username, likes }: PostProps) => (

@@ -1,0 +1,19 @@
+.search-wrapper {
+  position: relative;
+  // height: 2rem;
+  outline: 1px solid red;
+  .search-input {
+    // position: absolute;
+    width: 20rem;
+    top: 0;
+    left: 0;
+  }
+  .search-placeholder {
+    position: absolute;
+    // left: 0;
+    display: inline-block;
+    width: max-content;
+    // transform-origin: 50% 50%;
+    transform: translateX(-10rem);
+  }
+}

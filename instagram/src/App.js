@@ -2,9 +2,10 @@ import React, { Component } from "react"
 
 import PostContainer from "./components/PostContainer"
 import { posts } from "./data/dummy-data"
-import logo from "../src/assets/logo.png"
 
 import "./App.scss"
+
+import Header from "./components/Header"
 
 class App extends Component {
   state = {
@@ -15,10 +16,7 @@ class App extends Component {
     const { posts } = this.state
     return (
       <div className="container">
-        <header>
-          <img alt="logo" className="logo" src={logo} />
-          <h1>Instagram</h1>
-        </header>
+        <Header />
         <main>
           <ul className="posts-list">
             {posts.map((post, i) => (

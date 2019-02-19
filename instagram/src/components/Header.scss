@@ -1,0 +1,17 @@
+.top-header {
+  padding: 1.2rem 0;
+  display: flex;
+  justify-content: space-between;
+  div {
+    align-items: center;
+    display: flex;
+  }
+  h1 {
+    margin: 0;
+    &:before {
+      margin: 0 0.5rem;
+      border-left: 2px solid black;
+      content: "";
+    }
+  }
+}
