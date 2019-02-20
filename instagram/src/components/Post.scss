@@ -1,5 +1,4 @@
 .post-header {
-  
   display: flex;
   align-items: center;
   padding: 1rem 1rem;
@@ -17,7 +16,7 @@
 }
 
 figure {
-  margin: 0;
+  margin: 0 0 0.5rem 0;
   img {
     min-height: 100%;
     width: 100%;
@@ -27,6 +26,13 @@ figure {
 
 .stats {
   padding: 0 1rem;
+  button {
+    background: none;
+    font-size: 1rem;
+    padding: 0;
+    margin: 0;
+    border: none;
+  }
   .icons {
     display: inline-grid;
     grid-auto-flow: column;
@@ -35,6 +41,6 @@ figure {
   .likes {
     margin: 0.5rem 0;
     font-size: 0.9rem;
-    font-weight: strong;
+    font-weight: bold;
   }
 }

@@ -1,18 +1,22 @@
-import React from "react"
+import React, { ChangeEventHandler } from "react"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { faSearch } from "@fortawesome/free-solid-svg-icons"
 import { faInstagram } from "@fortawesome/free-brands-svg-icons"
 import Search from "./Search"
 import "./Header.scss"
 
-const Header = (): JSX.Element => (
+interface HeaderProps {
+  query: string
+  handleQueryChange: ChangeEventHandler
+}
+
+const Header = ({ query, handleQueryChange }: HeaderProps): JSX.Element => (
   <header className="top-header">
     <div className="left">
       <FontAwesomeIcon size={"2x"} icon={faInstagram} />
       <h1>Instagram</h1>
     </div>
     <div className="center">
-      <Search query={"test"} />
+      <Search handleQueryChange={handleQueryChange} query={query} />
     </div>
     <div className="right">
       <nav>

@@ -1,19 +1,18 @@
 .search-wrapper {
   position: relative;
-  // height: 2rem;
-  outline: 1px solid red;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   .search-input {
-    // position: absolute;
     width: 20rem;
-    top: 0;
-    left: 0;
+    padding: 0.25rem;
+  }
+  .search-input:focus ~ .search-placeholder {
+    display: none;
   }
   .search-placeholder {
     position: absolute;
-    // left: 0;
-    display: inline-block;
-    width: max-content;
-    // transform-origin: 50% 50%;
-    transform: translateX(-10rem);
+    color: gray;
+    font-size: 0.9rem;
   }
 }

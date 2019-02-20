@@ -7,6 +7,7 @@ import "./PostContainer.scss"
 
 interface PostContainerProps extends PostProps {
   comments: Array<CommentProps>
+  id: string
 }
 
 const PostContainer = ({
@@ -16,11 +17,22 @@ const PostContainer = ({
   thumbnailUrl,
   timestamp,
   username,
-  id
+  id,
+  handleLike
 }: PostContainerProps) => (
   <li className="post-container">
     <article>
-      <Post {...{ id, imageUrl, likes, thumbnailUrl, timestamp, username }} />
+      <Post
+        {...{
+          handleLike,
+          id,
+          imageUrl,
+          likes,
+          thumbnailUrl,
+          timestamp,
+          username
+        }}
+      />
       <CommentSection id={id} comments={comments} />
     </article>
   </li>

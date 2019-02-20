@@ -6,37 +6,56 @@ import Header from "./components/Header"
 import { posts as _posts } from "./data/dummy-data"
 
 import "./App.scss"
-import { uidFromUrl, append } from "./lib"
+import { uidFromUrl, append, add } from "./lib"
 
 const { Provider, Consumer } = createContext()
 export { Consumer }
 
-const posts = _posts.map(post => ({ ...post, id: uidFromUrl(post.imageUrl) }))
-
 class App extends Component {
   state = {
-    posts
+    posts: [],
+    query: ""
+  }
+
+  componentDidMount() {
+    const posts = _posts.map(post => ({
+      ...post,
+      id: uidFromUrl(post.imageUrl)
+    }))
+    this.setState(() => ({ posts }))
   }
 
   updateComments = (id, newComment) => {
     this.setState(
       modify(
         [whereEq({ id }), "comments"],
-        append({ username: "booboo", text: newComment })
+        append({ username: "pete", text: newComment })
       )
     )
   }
 
+  handleQueryChange = ({ target: { value: query } }) => {
+    this.setState(() => ({ query }))
+  }
+
+  handleLike = (id, fn) => {
+    this.setState(modify([whereEq({ id }), "likes"], fn))
+  }
+
   render() {
-    const { posts } = this.state
+    const { query, posts } = this.state
     return (
       <div className="container">
-        <Header />
+        <Header query={query} handleQueryChange={this.handleQueryChange} />
         <main>
           <Provider value={{ updateComments: this.updateComments }}>
             <ul className="posts-list">
               {posts.map(post => (
-                <PostContainer key={post.id} {...post} />
+                <PostContainer
+                  key={post.id}
+                  handleLike={this.handleLike}
+                  {...post}
+                />
               ))}
             </ul>
           </Provider>
