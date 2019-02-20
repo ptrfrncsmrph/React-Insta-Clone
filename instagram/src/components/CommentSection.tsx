@@ -1,6 +1,6 @@
 import React, { createRef } from "react"
 
-import { Consumer } from "./../App"
+import { Consumer } from "./PostsPage"
 import Comment, { CommentProps } from "./Comment"
 import "./CommentSection.scss"
 import { toRegExp } from "../lib"
@@ -34,7 +34,12 @@ const CommentSection = ({ comments, id }: CommentSectionProps): JSX.Element => {
               ref!.current!.value = ""
             }}
           >
-            <input type="text" ref={ref} />
+            <input
+              className="comment"
+              placeholder="Add a new comment..."
+              type="text"
+              ref={ref}
+            />
           </form>
         )}
       </Consumer>
