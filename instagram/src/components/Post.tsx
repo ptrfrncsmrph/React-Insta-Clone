@@ -8,9 +8,10 @@ export interface PostProps {
   username: string
   likes: number
   timestamp: string
+  id: string
 }
 
-const Post = ({ imageUrl, thumbnailUrl, username, likes }: PostProps) => (
+const Post = ({ imageUrl, thumbnailUrl, username, likes, id }: PostProps) => (
   <>
     <header className="post-header">
       <img alt={username} src={thumbnailUrl} className="thumbnail" />

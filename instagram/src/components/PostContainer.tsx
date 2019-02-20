@@ -15,12 +15,13 @@ const PostContainer = ({
   likes,
   thumbnailUrl,
   timestamp,
-  username
+  username,
+  id
 }: PostContainerProps) => (
   <li className="post-container">
     <article>
-      <Post {...{ imageUrl, likes, thumbnailUrl, timestamp, username }} />
-      <CommentSection comments={comments} />
+      <Post {...{ id, imageUrl, likes, thumbnailUrl, timestamp, username }} />
+      <CommentSection id={id} comments={comments} />
     </article>
   </li>
 )
