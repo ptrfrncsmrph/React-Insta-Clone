@@ -1,11 +1,12 @@
 import React, { Component, createContext } from "react"
+import { modify, whereEq } from "partial.lenses"
 
 import PostContainer from "./components/PostContainer"
 import Header from "./components/Header"
 import { posts as _posts } from "./data/dummy-data"
 
 import "./App.scss"
-import { uidFromUrl } from "./lib"
+import { uidFromUrl, append } from "./lib"
 
 const { Provider, Consumer } = createContext()
 export { Consumer }
@@ -18,22 +19,12 @@ class App extends Component {
   }
 
   updateComments = (id, newComment) => {
-    this.setState(({ posts }) => ({
-      posts: posts.map(post =>
-        post.id === id
-          ? {
-              ...post,
-              comments: [
-                ...post.comments,
-                {
-                  username: "foo",
-                  text: newComment
-                }
-              ]
-            }
-          : post
+    this.setState(
+      modify(
+        [whereEq({ id }), "comments"],
+        append({ username: "booboo", text: newComment })
       )
-    }))
+    )
   }
 
   render() {
