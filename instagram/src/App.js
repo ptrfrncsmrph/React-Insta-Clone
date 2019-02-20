@@ -6,7 +6,11 @@ import "./App.scss"
 
 const App = () => {
   const [isAuthed, setAuth] = useState(false)
-  const handleAuthChange = () => console.log("HELLO")
+  const handleAuthChange = e => {
+    e.preventDefault()
+    console.log("HELLO")
+    setAuth(!isAuthed)
+  }
   return isAuthed ? (
     <PostsPage />
   ) : (
