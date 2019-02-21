@@ -59,7 +59,9 @@ class App extends Component {
           <Provider value={{ updateComments: this.updateComments }}>
             <ul className="posts-list">
               {posts
-                .filter(post => toRegExp(query).test(post.username))
+                .filter(({ username, imageUrl }) =>
+                  [username, imageUrl].some(s => toRegExp(query).test(s))
+                )
                 .map(post => (
                   <PostContainer
                     key={post.id}
