@@ -1,12 +1,8 @@
-import React, {
-  useState,
-  ChangeEvent,
-  FormEventHandler,
-  FormEvent
-} from "react"
+import React, { useState, ChangeEvent, FormEvent } from "react"
 import Header from "./Header"
 
-import "./Login.scss"
+import "./LoginPage.scss"
+import { none } from "fp-ts/lib/Option"
 
 const LoginPage = ({
   handleAuthChange
@@ -25,7 +21,12 @@ const LoginPage = ({
   return (
     <div className="container">
       {/* I would like to get rid of these, but TypeScript complains */}
-      <Header query="" handleQueryChange={() => {}} handleLogout={() => {}} />
+      <Header
+        query=""
+        handleQueryChange={() => {}}
+        handleLogout={() => {}}
+        username={none}
+      />
       <main className="login">
         <form
           onSubmit={e => handleAuthChange(e, state.username)}

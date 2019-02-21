@@ -42,6 +42,7 @@ const withAuth = (LoginPage: ComponentType<LoginPageProps>) => (
       this.setState(() => ({
         username: none
       }))
+      localStorage.removeItem("username")
     }
 
     render() {

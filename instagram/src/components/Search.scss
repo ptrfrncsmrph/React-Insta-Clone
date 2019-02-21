@@ -11,6 +11,7 @@
     display: none;
   }
   .search-placeholder {
+    pointer-events: none;
     position: absolute;
     color: gray;
     font-size: 0.9rem;

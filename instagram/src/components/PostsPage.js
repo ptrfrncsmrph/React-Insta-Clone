@@ -6,6 +6,8 @@ import Header from "./Header"
 import { posts as _posts } from "./../data/dummy-data"
 
 import { uidFromUrl, append } from "../lib"
+import { some } from "fp-ts/lib/Option"
+import "./PostsPage.scss"
 
 const { Provider, Consumer } = createContext()
 export { Consumer }
@@ -44,10 +46,11 @@ class App extends Component {
   }
 
   render() {
-    const { query, posts } = this.state
+    const { query, posts, username } = this.state
     return (
       <div className="container">
         <Header
+          username={some(username)}
           query={query}
           handleLogout={this.props.handleLogout}
           handleQueryChange={this.handleQueryChange}
