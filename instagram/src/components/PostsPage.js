@@ -2,7 +2,7 @@ import React, { Component, createContext } from "react"
 import { modify, whereEq } from "partial.lenses"
 
 import PostContainer from "./PostContainer"
-import Header from "./Header"
+import Header from "./Header/Header"
 import { posts as _posts } from "./../data/dummy-data"
 
 import { uidFromUrl, append, toRegExp } from "../lib"
