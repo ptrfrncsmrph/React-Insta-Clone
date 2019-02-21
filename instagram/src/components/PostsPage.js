@@ -11,12 +11,12 @@ const { Provider, Consumer } = createContext()
 export { Consumer }
 
 class App extends Component {
-  constructor({ username }) {
-    super({ username })
+  constructor(props) {
+    super(props)
     this.state = {
       posts: [],
       query: "",
-      username
+      username: props.username
     }
   }
 
@@ -47,7 +47,11 @@ class App extends Component {
     const { query, posts } = this.state
     return (
       <div className="container">
-        <Header query={query} handleQueryChange={this.handleQueryChange} />
+        <Header
+          query={query}
+          handleLogout={this.props.handleLogout}
+          handleQueryChange={this.handleQueryChange}
+        />
         <main>
           <Provider value={{ updateComments: this.updateComments }}>
             <ul className="posts-list">

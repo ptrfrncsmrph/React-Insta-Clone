@@ -25,7 +25,7 @@ const LoginPage = ({
   return (
     <div className="container">
       {/* I would like to get rid of these, but TypeScript complains */}
-      <Header query="" handleQueryChange={() => {}} />
+      <Header query="" handleQueryChange={() => {}} handleLogout={() => {}} />
       <main className="login">
         <form
           onSubmit={e => handleAuthChange(e, state.username)}

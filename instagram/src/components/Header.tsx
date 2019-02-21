@@ -1,4 +1,4 @@
-import React, { ChangeEventHandler } from "react"
+import React, { ChangeEventHandler, MouseEventHandler } from "react"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faInstagram } from "@fortawesome/free-brands-svg-icons"
 import Search from "./Search"
@@ -7,9 +7,14 @@ import "./Header.scss"
 interface HeaderProps {
   query: string
   handleQueryChange: ChangeEventHandler
+  handleLogout: MouseEventHandler
 }
 
-const Header = ({ query, handleQueryChange }: HeaderProps): JSX.Element => (
+const Header = ({
+  query,
+  handleQueryChange,
+  handleLogout
+}: HeaderProps): JSX.Element => (
   <header className="top-header">
     <div className="left">
       <FontAwesomeIcon size={"2x"} icon={faInstagram} />
@@ -20,9 +25,10 @@ const Header = ({ query, handleQueryChange }: HeaderProps): JSX.Element => (
     </div>
     <div className="right">
       <nav>
-        <a href="">a</a>
+        <button onClick={handleLogout}>Log Out</button>
+        {/* <a href="">a</a>
         <a href="">b</a>
-        <a href="">c</a>
+        <a href="">c</a> */}
       </nav>
     </div>
   </header>

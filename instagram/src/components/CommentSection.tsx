@@ -3,14 +3,11 @@ import React, { createRef } from "react"
 import { Consumer } from "./PostsPage"
 import Comment, { CommentProps } from "./Comment"
 import "./CommentSection.scss"
-import { toRegExp } from "../lib"
 
 interface CommentSectionProps {
   comments: ReadonlyArray<CommentProps>
   id: string
 }
-
-toRegExp
 
 const CommentSection = ({ comments, id }: CommentSectionProps): JSX.Element => {
   const ref = createRef<HTMLInputElement>()

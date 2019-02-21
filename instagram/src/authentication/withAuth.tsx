@@ -1,4 +1,9 @@
-import React, { Component, ComponentType, FormEvent } from "react"
+import React, {
+  Component,
+  ComponentType,
+  FormEvent,
+  MouseEventHandler
+} from "react"
 import { Option, some, none, fromNullable } from "fp-ts/lib/Option"
 
 interface LoginPageProps {
@@ -6,6 +11,7 @@ interface LoginPageProps {
 }
 
 interface PostsPageProps {
+  handleLogout: MouseEventHandler
   username: string
 }
 
@@ -31,10 +37,19 @@ const withAuth = (LoginPage: ComponentType<LoginPageProps>) => (
       this.setState(() => ({ username: some(username) }))
       localStorage.setItem("username", username)
     }
+
+    handleLogout = () => {
+      this.setState(() => ({
+        username: none
+      }))
+    }
+
     render() {
       return this.state.username.fold(
         <LoginPage handleAuthChange={this.handleAuthChange} />,
-        username => <PostsPage username={username} />
+        username => (
+          <PostsPage handleLogout={this.handleLogout} username={username} />
+        )
       )
     }
   }
