@@ -5,7 +5,7 @@ import PostContainer from "./PostContainer"
 import Header from "./Header"
 import { posts as _posts } from "./../data/dummy-data"
 
-import { uidFromUrl, append } from "../lib"
+import { uidFromUrl, append, toRegExp } from "../lib"
 import { some } from "fp-ts/lib/Option"
 import "./PostsPage.scss"
 
@@ -58,13 +58,15 @@ class App extends Component {
         <main>
           <Provider value={{ updateComments: this.updateComments }}>
             <ul className="posts-list">
-              {posts.map(post => (
-                <PostContainer
-                  key={post.id}
-                  handleLike={this.handleLike}
-                  {...post}
-                />
-              ))}
+              {posts
+                .filter(post => toRegExp(query).test(post.username))
+                .map(post => (
+                  <PostContainer
+                    key={post.id}
+                    handleLike={this.handleLike}
+                    {...post}
+                  />
+                ))}
             </ul>
           </Provider>
         </main>
