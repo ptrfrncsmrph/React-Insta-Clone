@@ -1,4 +1,4 @@
-import React, { useState, MouseEventHandler, RefObject } from "react"
+import React, { useState, createRef, MouseEventHandler, Ref } from "react"
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faHeart, faComment } from "@fortawesome/free-regular-svg-icons"
@@ -14,7 +14,7 @@ export interface PostProps {
   timestamp: string
   id: string
   handleLike: (id: string, fn: (n: number) => number) => MouseEventHandler
-  ref: RefObject<HTMLInputElement>
+  handleFocus: () => void
 }
 
 const Post = ({
@@ -22,9 +22,9 @@ const Post = ({
   thumbnailUrl,
   username,
   likes,
-  handleLike,
   id,
-  ref
+  handleLike,
+  handleFocus
 }: PostProps) => {
   const [liked, setLiked] = useState(false)
   return (
@@ -46,12 +46,7 @@ const Post = ({
           >
             <FontAwesomeIcon color={liked ? "red" : "inherit"} icon={faHeart} />
           </button>
-          <button
-            onClick={() => {
-              console.log(ref)
-              ref && ref!.current!.focus()
-            }}
-          >
+          <button onClick={handleFocus}>
             <FontAwesomeIcon icon={faComment} />
           </button>
         </div>

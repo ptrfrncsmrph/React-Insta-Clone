@@ -21,6 +21,9 @@ const PostContainer = ({
   handleLike
 }: PostContainerProps) => {
   const ref = createRef<HTMLInputElement>()
+  const handleFocus = () => {
+    ref!.current!.focus()
+  }
   return (
     <li className="post-container">
       <article>
@@ -33,10 +36,10 @@ const PostContainer = ({
             thumbnailUrl,
             timestamp,
             username,
-            ref
+            handleFocus
           }}
         />
-        <CommentSection ref={ref} id={id} comments={comments} />
+        <CommentSection forwardedRef={ref} id={id} comments={comments} />
       </article>
     </li>
   )
