@@ -1,4 +1,4 @@
-import React, { useState, createRef, MouseEventHandler, Ref } from "react"
+import React, { useState, MouseEventHandler } from "react"
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faHeart, faComment } from "@fortawesome/free-regular-svg-icons"

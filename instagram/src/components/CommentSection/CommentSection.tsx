@@ -1,19 +1,18 @@
-import React, { createRef, Ref, RefObject } from "react"
+import React, { RefObject } from "react"
 
 import { Consumer } from "../PostsPage"
 import Comment, { CommentProps } from "./Comment"
 
 import styled from "@emotion/styled"
-import { lighten } from "polished"
-
-const papayawhip = "#ffefd5"
 
 const Section = styled.section`
   padding: 0 1rem 1rem 1rem;
   input.comment {
-    background: ${lighten(0.5, papayawhip)};
     font-size: 0.9rem;
     padding: 0.25rem;
+    &:focus {
+      background-color: papayawhip;
+    }
   }
 `
 
