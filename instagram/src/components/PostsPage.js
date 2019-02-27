@@ -12,14 +12,10 @@ import "./PostsPage.scss"
 const { Provider, Consumer } = createContext()
 export { Consumer }
 
-class App extends Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      posts: [],
-      query: "",
-      username: props.username
-    }
+class PostsPage extends Component {
+  state = {
+    posts: [],
+    query: ""
   }
 
   componentDidMount() {
@@ -46,13 +42,14 @@ class App extends Component {
   }
 
   render() {
-    const { query, posts, username } = this.state
+    const { query, posts } = this.state
+    const { username, handleLogout } = this.props
     return (
       <div className="container">
         <Header
           username={some(username)}
           query={query}
-          handleLogout={this.props.handleLogout}
+          handleLogout={handleLogout}
           handleQueryChange={this.handleQueryChange}
         />
         <main>
@@ -77,4 +74,4 @@ class App extends Component {
   }
 }
 
-export default App
+export default PostsPage
