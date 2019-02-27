@@ -13,6 +13,7 @@ module Styles = {
 
 let component = ReasonReact.statelessComponent("Comment");
 
+[@genType]
 let make = (~username, ~text, _children) => {
   ...component,
   render: _self =>

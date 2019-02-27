@@ -3,7 +3,8 @@ import React, { RefObject } from "react"
 import { Consumer } from "../PostsPage"
 // import Comment, { CommentProps } from "./Comment"
 import { CommentProps } from "./Comment"
-import { jsComponent as Comment } from "./Comment.bs"
+// import { jsComponent as Comment } from "./Comment.bs"
+import Comment from "./Comment.gen"
 
 import styled from "@emotion/styled"
 

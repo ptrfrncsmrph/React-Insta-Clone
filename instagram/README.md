@@ -15,4 +15,4 @@ The `Comment` component seems like a good place to start.
 - [x] Import SCSS stylesheet into `Comment.re`
   - _Note:_ Need to use `require` syntax
 - [x] Use `emotion` inside of `Comment.re`, remove SCSS import
-- [ ] Generate TypeScript types for `Comment.re` to interface with `CommentSection.tsx`
+- [x] Generate TypeScript types for `Comment.re` to interface with `CommentSection.tsx` using `genType`

@@ -22,5 +22,12 @@
     "error": "+101"
   },
   "namespace": true,
-  "refmt": 3
+  "refmt": 3,
+  "gentypeconfig": {
+    "language": "typescript",
+    "module": "es6",
+    "shims": {
+      "ReasonReact": "ReactShim"
+    }
+  }
 }

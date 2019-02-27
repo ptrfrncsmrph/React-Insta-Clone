@@ -33,7 +33,9 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "bs:build": "export BS_CMT_POST_PROCESS_CMD=\"gentype\" && bsb -make-world",
+    "bs:clean": "bsb -clean-world"
   },
   "browserslist": [
     ">0.2%",
@@ -42,6 +44,7 @@
     "not op_mini all"
   ],
   "devDependencies": {
-    "bs-platform": "^4.0.18"
+    "bs-platform": "^4.0.18",
+    "gentype": "^2.12.0"
   }
 }
