@@ -17,4 +17,6 @@ S src/reason
 B lib/bs/src/reason
 S src/reason/components
 B lib/bs/src/reason/components
+S src/components/CommentSection
+B lib/bs/src/components/CommentSection
 ####BSB GENERATED: NO EDIT}

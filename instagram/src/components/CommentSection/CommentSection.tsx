@@ -1,7 +1,9 @@
 import React, { RefObject } from "react"
 
 import { Consumer } from "../PostsPage"
-import Comment, { CommentProps } from "./Comment"
+// import Comment, { CommentProps } from "./Comment"
+import { CommentProps } from "./Comment"
+import { jsComponent as Comment } from "./Comment.bs"
 
 import styled from "@emotion/styled"
 
