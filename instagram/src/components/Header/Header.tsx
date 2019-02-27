@@ -6,9 +6,9 @@ import { Option, isSome } from "fp-ts/lib/Option"
 import styled from "@emotion/styled"
 
 interface HeaderProps {
-  query: string
-  handleQueryChange: ChangeEventHandler
-  handleLogout: MouseEventHandler
+  query?: string
+  handleQueryChange?: ChangeEventHandler
+  handleLogout?: MouseEventHandler
   username: Option<string>
 }
 
@@ -53,7 +53,7 @@ const Header = ({
     {isSome(username) && (
       <>
         <div className="center">
-          <Search handleQueryChange={handleQueryChange} query={query} />
+          <Search handleQueryChange={handleQueryChange!} query={query!} />
         </div>
         <div className="right">
           <nav>
