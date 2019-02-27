@@ -12,7 +12,12 @@
     "in-source": true
   },
   "suffix": ".bs.js",
-  "bs-dependencies": ["@mobily/re-date", "bs-date-fns", "reason-react"],
+  "bs-dependencies": [
+    "@mobily/re-date",
+    "bs-css",
+    "bs-date-fns",
+    "reason-react"
+  ],
   "warnings": {
     "error": "+101"
   },

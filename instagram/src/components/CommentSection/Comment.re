@@ -1,13 +1,24 @@
-[%bs.raw {| require("./Comment.scss") |}];
+module Styles = {
+  open Css;
+
+  let fontSize_ = rem(0.9);
+
+  let commentItem = style([margin2(~v=rem(0.5), ~h=rem(0.0))]);
+
+  let commentUsername =
+    style([fontSize(fontSize_), marginRight(ch(1.0)), display(inline)]);
+
+  let commentText = style([fontSize(fontSize_), display(inline)]);
+};
 
 let component = ReasonReact.statelessComponent("Comment");
 
 let make = (~username, ~text, _children) => {
   ...component,
   render: _self =>
-    <li className="comment-item">
-      <h4 className="comment-username"> username->ReasonReact.string </h4>
-      <p className="comment-text"> text->ReasonReact.string </p>
+    <li className=Styles.commentItem>
+      <h4 className=Styles.commentUsername> username->ReasonReact.string </h4>
+      <p className=Styles.commentText> text->ReasonReact.string </p>
     </li>,
 };
 
